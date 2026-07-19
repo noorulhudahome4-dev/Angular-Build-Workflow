@@ -9,14 +9,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v7.0.0
+      - uses: actions/checkout@v4
+
       - name: Setup Node JS
-        uses: actions/setup-node@v6.5.0
+        uses: actions/setup-node@v4
         with:
-          node-version: 22.x
+          node-version: 22
+
       - name: Install Dependencies
+        working-directory: "./Angular-Build-Workflow/Angular web"
         run: npm install
+
       - name: Build Angular App
+        working-directory: "./Angular-Build-Workflow/Angular web"
         run: npm run build
-     
-    
